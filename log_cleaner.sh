@@ -3,10 +3,11 @@
 # Define log directory and retention period
 LOG_DIR="/var/log/myapp"
 RETENTION_DAYS=7
+EMAIL="you_email@example.com"
 
 # Make sure the directory exists
 if [ ! -d "$LOG_DIR" ]; then
-    echo "Error: Log directory $LOG_DIR does not exist!"
+    echo "Error: Log directory $LOG_DIR does not exist!" | sendmail $EMAIL
     exit 1
 fi
 
